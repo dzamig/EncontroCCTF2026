@@ -39,3 +39,13 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '-15% 0px -50% 0px', threshold: [0, 0.2, 0.5] });
   document.querySelectorAll('main > section[id]').forEach((section) => observer.observe(section));
 }
+
+// Os links PT/ES funcionam sem JavaScript; com ele, preservam a seção atual.
+const languageSwitch = document.querySelector('.language-switch');
+if (languageSwitch) {
+  languageSwitch.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      link.hash = window.location.hash;
+    });
+  });
+}
